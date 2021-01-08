@@ -14,7 +14,7 @@ Karma variable:
   Karma_Inc(kr = 6): Increases KARMA by kr
 
 How to use:
-  To increase KARMA in a wave file, you just need to call Karma_inc
+  To increase KARMA in a wave script, you just need to call Karma_inc:
     function OnHit(bullet)
       Encounter.Call("Karma_Inc", 6)
       Player.Hurt(1)
