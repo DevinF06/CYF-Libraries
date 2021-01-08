@@ -1,0 +1,21 @@
+Stuff required for this to work:
+  Sprites/color
+  Sprites/krname
+  requre "Libraries/karma" in EncounterStarting()
+  Karma.Update() in Update()
+
+Karma variable:
+  Karma.kr: Current KARMA
+  Karma.maxkr: Maximum KARMA, default is 40
+  Karma.drain: How fast KARMA should drain, 1 is 1x, 2 is 2x ...
+  Karma.kr_t: Used for KARMA drain
+  
+  Karma.Update(): Used to update the visuals and KARMA drain
+  Karma_Inc(kr = 6): Increases KARMA by kr
+
+How to use:
+  To increase KARMA in a wave file, you just need to call Karma_inc
+    function OnHit(bullet)
+      Encounter.Call("Karma_Inc", 6)
+      Player.Hurt(1)
+    end
