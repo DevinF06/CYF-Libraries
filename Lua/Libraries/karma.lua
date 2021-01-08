@@ -2,7 +2,7 @@ local bar = CreateSprite("color")
 local hphide = CreateSprite("color")
 local kr = CreateSprite("krname")
 local hp = {isactive = false}
-local d, c, i, v
+local d, c, t, i, v
 
 Karma = {
   kr = 0,
@@ -30,8 +30,6 @@ function Karma_Inc(k)
 end
 
 function Karma.Update()
-  if Player.ishurting == false and Karma.inc ~= nil then Player.Hurt(1) Karma.kr = Karma.kr + Karma.inc end
-  Karma.inc = nil
   Karma.kr = math.max(Karma.kr, 0)
   Karma.kr = math.min(Karma.kr, Karma.maxkr)
   Karma.kr = math.min(Karma.kr, Player.hp - 1)
@@ -64,7 +62,7 @@ function Karma.Update()
   hp.x = Player.maxhp * d + 325
   if Karma.kr > 0 then c = 40 else c = 255 end
   hp.color32 = {255, c, 255}
-  c = "" .. Player.hp
+  t = "" .. Player.hp
   hp.SetText("[noskip][novoice][instant]" .. string.sub(c, 1, -2) .. "[charspacing:14]" .. string.sub(c, -1, -1) .. "/[charspacing:3]" .. Player.maxhp .. "[instant:stop] ")
   hp.NextLine()
 end
