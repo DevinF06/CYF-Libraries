@@ -1,14 +1,15 @@
 local bar = CreateSprite("color")
 local hphide = CreateSprite("color")
 local kr = CreateSprite("krname")
-local hp = {isactive = false}
-local d, c, t, i, v
+local hp = {}
+local d, t, i, v
 
 Karma = {
   kr = 0,
   maxkr = 40,
   drain = 1,
-  kr_t = 0
+  kr_t = 0,
+  sprites = {bar = bar, hphide = hphide, kr = kr, hp = hp}
 }
 
 bar.y = 70
@@ -60,8 +61,7 @@ function Karma.Update()
     hp.NextLine()
   end
   hp.x = Player.maxhp * d + 325
-  if Karma.kr > 0 then c = 40 else c = 255 end
-  hp.color32 = {255, c, 255}
+  if Karma.kr > 0 then hp.color = bar.color else hp.color = {1, 1, 1} end
   t = "" .. Player.hp
   hp.SetText("[noskip][novoice][instant]" .. string.sub(c, 1, -2) .. "[charspacing:14]" .. string.sub(c, -1, -1) .. "/[charspacing:3]" .. Player.maxhp .. "[instant:stop] ")
   hp.NextLine()
