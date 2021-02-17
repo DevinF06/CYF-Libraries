@@ -63,6 +63,6 @@ function Karma.Update()
   hp.x = Player.maxhp * d + 325
   if Karma.kr > 0 then hp.color = bar.color else hp.color = {1, 1, 1} end
   t = "" .. Player.hp
-  hp.SetText("[noskip][novoice][instant]" .. string.sub(c, 1, -2) .. "[charspacing:14]" .. string.sub(c, -1, -1) .. "/[charspacing:3]" .. Player.maxhp .. "[instant:stop] ")
+  hp.SetText("[noskip][novoice][instant]" .. string.sub(t, 1, -2) .. "[charspacing:14]" .. string.sub(t, -1, -1) .. "/[charspacing:3]" .. Player.maxhp .. "[instant:stop] ")
   hp.NextLine()
 end
